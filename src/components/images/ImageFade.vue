@@ -1,12 +1,68 @@
 <template>
-  <div></div>
+  <div
+    class="image__container"
+    :style="{
+      backgroundImage: `url(${require(`@/assets/img/projects${project.path}${project.file}`)})`,
+    }"
+  >
+    <div
+      class="image__window"
+      v-on:mouseover="fadeIn"
+      v-on:mouseleave="fadeOut"
+      :style="style"
+    >
+      {{ project.title }}
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ["imageInfo"],
+  props: ["project"],
+  data() {
+    return {
+      hover: false,
+      style: {
+        backgroundColor: "rgba(0, 0, 0, 0)",
+      },
+    };
+  },
+  computed: {},
+  methods: {
+    fadeIn() {
+      this.hover = true;
+      this.style.backgroundColor = "rgba(44, 62, 80, 0.9)";
+      this.style.color = "var(--color-primary-contrast)";
+    },
+    fadeOut() {
+      this.hover = false;
+      this.style.backgroundColor = "rgba(0, 0, 0, 0)";
+      this.style.color = "rgba(0, 0, 0, 0)";
+    },
+  },
 };
 </script>
 
 <style scoped>
+.image__container {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s;
+}
+
+.image__window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 2em;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s;
+  color: rgba(0, 0, 0, 0);
+}
 </style>
