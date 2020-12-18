@@ -9,12 +9,19 @@
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease-in-out;
+.nav-fade-enter-active,
+.nav-fade-leave-active {
+  transition: all 0.2s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.nav-fade-enter-from,
+.nav-fade-leave-to {
   opacity: 0;
+  transform: translateY(30px);
+}
+
+.nav-fade-enter-to,
+.nav-fade-level-from {
+  opacity: 1;
+  transform: translateY(0);
 }

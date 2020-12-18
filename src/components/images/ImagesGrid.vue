@@ -1,7 +1,7 @@
 <template>
   <div class="images">
     <div class="image" v-for="(project, index) in projects" v-bind:key="index">
-      <ImageFade :project="project" />
+      <ImageFade :project="project" v-on:clicked="clicked(project)" />
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
     ImageFade,
   },
   props: ["projects"],
+  methods: {
+    clicked(project) {
+      this.$emit(project);
+    },
+  },
 };
 </script>
 

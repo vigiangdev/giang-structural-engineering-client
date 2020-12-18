@@ -97,17 +97,6 @@ export default {
   color: var(--color-primary-contrast);
 }
 
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.2s ease;
-}
-
-.slide-enter-from,
-.slide-leave-to {
-  transform: translateX(100%);
-  transition: all 150ms ease-in 0s;
-}
-
 .nav__backdrop {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
@@ -115,7 +104,6 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  cursor: pointer;
 }
 
 .nav__sidebar {
@@ -129,7 +117,24 @@ export default {
   top: 0;
   height: 100vh;
   z-index: 10;
-  width: 300px;
+  width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.2s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100%);
+  transition: all 150ms ease-in 0s;
+}
+
+@media (min-width: 576px) {
+  .nav__sidebar {
+    width: 300px;
+  }
 }
 </style>

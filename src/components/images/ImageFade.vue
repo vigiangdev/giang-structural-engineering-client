@@ -11,7 +11,8 @@
       v-on:mouseleave="fadeOut"
       :style="style"
     >
-      {{ project.title }}
+      <h3>{{ project.title }}</h3>
+      <p class="image__location">{{ project.location }}</p>
     </div>
   </div>
 </template>
@@ -51,10 +52,12 @@ export default {
   width: 100%;
   height: 100%;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .image__window {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -64,5 +67,10 @@ export default {
   height: 100%;
   transition: all 0.2s;
   color: rgba(0, 0, 0, 0);
+}
+
+.image__location {
+  font-size: 0.8em;
+  padding: 0.5em;
 }
 </style>
