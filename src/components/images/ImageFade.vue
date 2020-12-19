@@ -1,6 +1,7 @@
 <template>
   <div
     class="image__container"
+    v-on:click="openProject"
     :style="{
       backgroundImage: `url(${require(`@/assets/img/projects${project.path}${project.file}`)})`,
     }"
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   props: ["project"],
   data() {
@@ -30,6 +32,7 @@ export default {
   },
   computed: {},
   methods: {
+    ...mapMutations(["setActiveProject", "openModalSwiper"]),
     fadeIn() {
       this.hover = true;
       this.style.backgroundColor = "rgba(44, 62, 80, 0.9)";
@@ -39,6 +42,10 @@ export default {
       this.hover = false;
       this.style.backgroundColor = "rgba(0, 0, 0, 0)";
       this.style.color = "rgba(0, 0, 0, 0)";
+    },
+    openProject() {
+      this.setActiveProject(this.project);
+      this.openModalSwiper();
     },
   },
 };

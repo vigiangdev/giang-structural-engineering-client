@@ -1,12 +1,14 @@
 <template>
-  <div class="modal" v-if="isModalOpen">
+  <div class="modal" v-if="isModalSwiperOpen">
     <div
       class="modal__backdrop"
-      v-on:click="closeModal"
+      v-on:click="closeModalSwiper"
       v-if="isModalOpen"
     ></div>
     <div class="modal__container">
-      <span class="material-icons close" v-on:click="closeModal"> clear </span>
+      <span class="material-icons close" v-on:click="closeModalSwiper">
+        clear
+      </span>
       <swiper
         :slides-per-view="1"
         :space-between="0"
@@ -15,27 +17,22 @@
         :scrollbar="{ draggable: true }"
         class="swiper"
       >
-        <swiper-slide class="swiper__slide">Slide 1</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 2</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 3</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 4</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 5</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 6</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 7</swiper-slide>
-        <swiper-slide class="swiper__slide">Slide 8</swiper-slide>
-        <!-- <swiper-slide
+        <swiper-slide
           class="swiper__slide"
-          v-on:click="displayImages"
           v-for="(image, index) in project.images"
           v-bind:key="index"
-          >Slide
-        </swiper-slide> -->
+          :style="{
+            backgroundImage: `url(${require(`@/assets/img/projects${project.path}${project.images[index]}`)})`,
+          }"
+        >
+        </swiper-slide>
       </swiper>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -45,7 +42,7 @@ import "swiper/swiper-bundle.min.css";
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default {
-  // props: ["project"],
+  props: ["project"],
   components: {
     Swiper,
     SwiperSlide,
@@ -55,13 +52,11 @@ export default {
       isModalOpen: true,
     };
   },
+  computed: {
+    ...mapGetters(["isModalSwiperOpen"]),
+  },
   methods: {
-    openModal() {
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-    },
+    ...mapMutations(["closeModalSwiper", "openModalSwiper"]),
   },
 };
 </script>
@@ -85,15 +80,15 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75vw;
-  height: 75vh;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   z-index: 1;
 }
 
 .close {
   position: absolute;
-  color: var(--color-primary-contrast);
+  color: var(--color-primary);
   font-size: 3em;
   font-weight: normal;
   padding: 0.5em;
@@ -120,8 +115,18 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 5em;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-contrast);
   width: 100%;
   height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+@media (min-width: 476px) {
+  .modal__container {
+    width: 85vw;
+    height: 85vh;
+  }
 }
 </style>

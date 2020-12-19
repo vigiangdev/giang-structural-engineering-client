@@ -1,11 +1,9 @@
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    bottom: -1em;
   }
   100% {
     opacity: 1;
-    bottom: 0em;
   }
 }
 
@@ -17,11 +15,9 @@
 .nav-fade-enter-from,
 .nav-fade-leave-to {
   opacity: 0;
-  transform: translateY(30px);
 }
 
 .nav-fade-enter-to,
 .nav-fade-level-from {
   opacity: 1;
-  transform: translateY(0);
 }

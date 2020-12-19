@@ -3,12 +3,14 @@
     <template v-slot:header>
       <h1>Projects</h1>
     </template>
-    <ImagesGrid :projects="projects" v-on:clicked="openProject" />
-    <ImagesSwiper />
+    <ImagesGrid :projects="projects" />
+    <ImagesSwiper :project="activeProject" v-if="activeProject" />
   </base-layout>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import ImagesGrid from "@/components/images/ImagesGrid.vue";
 import ImagesSwiper from "@/components/images/ImagesSwiper.vue";
@@ -20,52 +22,10 @@ export default {
     ImagesSwiper,
   },
   data() {
-    return {
-      projects: [
-        {
-          title: "Scenic Lane Residence",
-          location: "Healdsburg, CA",
-          path: "/scenic-lane-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-        {
-          title: "Sixth Street Residence",
-          location: "Berkeley, CA",
-          path: "/sixth-street-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-        {
-          title: "Grizzly Peak Blvd Residence",
-          location: "Berkeley, CA",
-          path: "/grizzly-peak-blvd-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-        {
-          title: "Grosvenor Place Residence",
-          location: "Oakland, CA",
-          path: "/grosvenor-place-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-        {
-          title: "Oxford Street Residence",
-          location: "Berkeley, CA",
-          path: "/oxford-street-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-        {
-          title: "Pomona Ave Residence",
-          location: "Oakland, CA",
-          path: "/pomona-ave-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-        {
-          title: "Alameda Ave Residence",
-          location: "Alameda, CA",
-          path: "/alameda-ave-residence/",
-          file: "img-0-thumbnail.jpg",
-        },
-      ],
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters(["projects", "activeProject", "isModalSwiperOpen"]),
   },
 };
 </script>
