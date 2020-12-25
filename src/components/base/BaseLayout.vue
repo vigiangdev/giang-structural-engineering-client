@@ -7,9 +7,9 @@
       <main>
         <slot></slot>
       </main>
-      <header>
+      <footer>
         <slot name="footer"></slot>
-      </header>
+      </footer>
     </div>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {};
 header {
   font-size: 2em;
   margin: 1em 0 0 0;
+  text-align: center;
 }
 
 footer {

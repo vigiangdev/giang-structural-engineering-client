@@ -1,10 +1,6 @@
 <template>
   <div class="modal" v-if="isModalSwiperOpen">
-    <div
-      class="modal__backdrop"
-      v-on:click="closeModalSwiper"
-      v-if="isModalOpen"
-    ></div>
+    <div class="modal__backdrop" v-on:click="closeModalSwiper"></div>
     <div class="modal__container">
       <span class="material-icons close" v-on:click="closeModalSwiper">
         clear
@@ -14,17 +10,21 @@
         :space-between="0"
         navigation
         :pagination="{ clickable: true }"
-        :scrollbar="{ draggable: true }"
+        :scrollbar="{ draggable: true, hide: true }"
         class="swiper"
       >
         <swiper-slide
           class="swiper__slide"
           v-for="(image, index) in project.images"
           v-bind:key="index"
-          :style="{
-            backgroundImage: `url(${require(`@/assets/img/projects${project.path}${project.images[index]}`)})`,
-          }"
         >
+          <img
+            :src="
+              require(`@/assets/img/projects${project.path}${project.images[index]}`)
+            "
+            :alt="project.title"
+            class="swiper__img"
+          />
         </swiper-slide>
       </swiper>
     </div>
@@ -63,70 +63,70 @@ export default {
 
 <style scoped>
 .modal {
-  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal__backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 .modal__container {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  background-color: var(--color-primary-contrast);
+  padding: 1em;
+  border: 1px solid var(--color-primary-contrast);
+  max-height: 100%;
+  max-width: 80%;
+  width: auto;
+  height: auto;
   box-sizing: border-box;
-  z-index: 1;
+  overflow: auto;
 }
 
 .close {
   position: absolute;
-  color: var(--color-primary);
-  font-size: 3em;
+  color: #007aff;
+  font-size: 3.5em;
   font-weight: normal;
-  padding: 0.5em;
-  top: 0;
-  right: 0;
+  padding: 0.25em;
+  top: 0.25em;
+  right: 0.25em;
   z-index: 2;
 }
 
 .close:hover,
 .close:focus {
-  color: var(--color-secondary);
-  text-decoration: none;
   cursor: pointer;
 }
 
 .swiper {
+  width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .swiper__slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5em;
-  background-color: var(--color-primary-contrast);
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 
-@media (min-width: 476px) {
+.swiper__img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 992px) {
   .modal__container {
-    width: 85vw;
-    height: 85vh;
+    width: 60%;
   }
 }
 </style>

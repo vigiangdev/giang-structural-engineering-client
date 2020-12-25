@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 import ButtonDesign from "@/components/utils/ButtonDesign.vue";
 
 export default {
@@ -56,26 +56,31 @@ export default {
   },
   data() {
     return {
-      feedback: null,
-      name: null,
-      phone: null,
-      email: null,
-      message: null,
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
     };
   },
+  computed: {
+    ...mapGetters(["feedback"]),
+  },
   methods: {
+    ...mapMutations(["resetFeedback"]),
     ...mapActions(["sendEmail"]),
-    sendEmailTo() {
-      if (this.name && this.email && this.message) {
-        const info = {
-          name: this.name,
-          phone: this.phone,
-          email: this.email,
-          text: this.message,
-        };
-        this.sendEmail(info);
+    async sendEmailTo() {
+      const info = {
+        name: this.name,
+        phone: this.phone,
+        email: this.email,
+        text: this.message,
+      };
+      const res = await this.sendEmail(info);
+
+      if (res.data.success) {
+        this.$router.push({ name: "ContactRedirect" });
       } else {
-        this.feedback = "Please ";
+        alert(res.data.message);
       }
     },
   },
@@ -86,16 +91,21 @@ export default {
 .contactform {
   display: flex;
   flex-direction: column;
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 .container {
   display: flex;
   flex-direction: column;
-  margin: 0.5em 0;
+  margin: 0 0 1em 0;
+}
+
+label {
+  padding: 0.5em 0;
+  font-weight: 500;
 }
 
 input {
-  height: 1.5em;
+  height: 2.5em;
   font-size: 1em;
   padding: 0.5em;
 }

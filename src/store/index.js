@@ -4,7 +4,7 @@ import axios from "axios";
 export default createStore({
   state: {
     isSidebarOpen: false,
-    isModalSwiperOpen: true,
+    isModalSwiperOpen: false,
     activeProject: null,
     projects: [
       {
@@ -56,6 +56,13 @@ export default createStore({
         file: "img-0-thumbnail.jpg",
         images: ["img-0.jpg", "img-1.jpg"],
       },
+      {
+        title: "Canon Ave Residence",
+        location: "Oakland, CA",
+        path: "/canon-ave-residence/",
+        file: "img-0-thumbnail.jpg",
+        images: ["img-0.jpg"],
+      },
     ],
   },
   getters: {
@@ -100,7 +107,8 @@ export default createStore({
         url: "/api/v1/mail/send",
         data: payload,
       });
-      console.log(res);
+
+      return res;
     },
   },
   modules: {},

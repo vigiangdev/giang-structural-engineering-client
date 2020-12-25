@@ -18,6 +18,18 @@ const routes = [
     component: () => import("../views/Contact.vue"),
   },
   {
+    path: "/contact/redirect",
+    name: "ContactRedirect",
+    component: () => import("../views/ContactRedirect.vue"),
+    beforeEnter: (to, from, next) => {
+      if (from.name !== "Contact") {
+        next({ name: "Home" });
+      } else {
+        next();
+      }
+    },
+  },
+  {
     path: "/projects",
     name: "Projects",
     component: () => import("../views/Projects.vue"),
