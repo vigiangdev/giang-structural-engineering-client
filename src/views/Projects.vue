@@ -4,7 +4,9 @@
       <h1>Projects</h1>
     </template>
     <ImagesGrid :projects="projects" />
-    <ImagesSwiper :project="activeProject" v-if="activeProject" />
+    <transition name="fade">
+      <ImagesSwiper :project="activeProject" v-if="activeProject" />
+    </transition>
   </base-layout>
 </template>
 
@@ -31,4 +33,11 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.25s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

@@ -80,7 +80,7 @@ export default {
       if (res.data.success) {
         this.$router.push({ name: "ContactRedirect" });
       } else {
-        alert(res.data.message);
+        alert(res.data.message || "Unable to send email. Please try again.");
       }
     },
   },

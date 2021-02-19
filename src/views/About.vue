@@ -55,9 +55,8 @@
       <div class="content-list">
         <h4>Consultation</h4>
         <p>
-          Please email any architectural plans or sketches if they are available
-          as pictures speak a thousand words. We can address any questions or
-          concerns via phone or email until you are completely satisfied.
+          Please send any architectural plans or sketches for our review. We can
+          address any questions or concerns via phone or email that may arise.
         </p>
         <h4>Proposal</h4>
         <p>

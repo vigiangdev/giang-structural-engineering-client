@@ -2,7 +2,7 @@
   <div class="homesplash">
     <div class="homesplash__container">
       <div class="homesplash__content">
-        <h1 class="title">Building your dream home on solid foundation</h1>
+        <h1 class="title">BUILDING YOUR DREAM HOME ON SOLID FOUNDATION</h1>
       </div>
     </div>
   </div>
@@ -37,34 +37,38 @@ export default {};
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  z-index: 0;
 }
 
 .title {
   position: absolute;
+  display: inline-block;
   bottom: 0;
+  margin: 1em;
   font-size: 2em;
   font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1em;
   color: var(--color-primary-contrast);
-  width: 100%;
-  padding: 0.5em 1em 1em 1em;
   box-sizing: border-box;
-  animation: fadeUp 2s;
+  padding: 0.5em;
+  border: 3px solid transparent;
+  border-radius: 0.5em;
+  background: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(180, 180, 180, 0.1);
 }
 
 @media (min-width: 576px) {
-  .title {
-    font-size: 3em;
-  }
 }
 
 @media (min-width: 768px) {
-  .title {
-    font-size: 4em;
-  }
 }
 
 @media (min-width: 992px) {
+  .title {
+    font-size: 3em;
+  }
 }
 
 @media (min-width: 1200px) {
