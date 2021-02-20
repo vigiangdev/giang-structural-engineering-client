@@ -1,15 +1,87 @@
 <template>
   <div class="homesplash">
-    <div class="homesplash__container">
-      <div class="homesplash__content">
-        <h1 class="title">BUILDING YOUR DREAM HOME ON SOLID FOUNDATION</h1>
+    <div class="container">
+      <div class="slider">
+        <div class="slider-navigation">
+          <div class="swiper-button-container swiper-button-prev">
+            <font-awesome-icon
+              class="swiper-button"
+              :icon="['fas', 'chevron-left']"
+            />
+          </div>
+          <div class="swiper-button-container swiper-button-next">
+            <font-awesome-icon
+              class="swiper-button"
+              :icon="['fas', 'chevron-right']"
+            />
+          </div>
+        </div>
+        <swiper
+          :slides-per-view="1"
+          :space-between="50"
+          effect="fade"
+          :loop="true"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }"
+          :autoplay="{ delay: 8000 }"
+          class="slider-container"
+        >
+          <swiper-slide
+            v-for="image in images"
+            v-bind:key="image.id"
+            class="slide"
+          >
+            <h1 class="slide-title">{{ image.title }}</h1>
+            <img class="slide-image" :src="image.imageUrl" />
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import SwiperCore, { Navigation, Autoplay, EffectFade } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/swiper-bundle.min.css";
+
+SwiperCore.use([Navigation, Autoplay, EffectFade]);
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  data() {
+    return {
+      images: [
+        {
+          id: 1,
+          imageUrl: require("../../assets/img/projects/scenic-lane-residence/img-0.jpg"),
+          title: "Scenic Lane - Remodel",
+        },
+        {
+          id: 2,
+          imageUrl: require("../../assets/img/projects/grosvenor-place-residence/img-0.jpg"),
+          title: "Grosvenor Place - New Construction",
+        },
+        {
+          id: 3,
+          imageUrl: require("../../assets/img/projects/pomona-ave-residence/img-0.jpg"),
+          title: "Pomona Avenue - New ADU Construction",
+        },
+        {
+          id: 4,
+          imageUrl: require("../../assets/img/projects/oxford-street-residence/img-0.jpg"),
+          title: "Oxford Street - Remodel",
+        },
+      ],
+    };
+  },
+  methods: {},
+};
 </script>
 
 <style scoped>
@@ -21,56 +93,91 @@ export default {};
   align-items: center;
 }
 
-.homesplash__container {
-  box-sizing: border-box;
+.container {
   width: 100%;
   height: 100%;
   padding: 0 3em 3em 3em;
 }
 
-.homesplash__content {
+.slider {
   position: relative;
-  background-image: url("../../assets/img/home/home-splash.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
 
-.title {
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-title {
   position: absolute;
-  display: inline-block;
-  bottom: 0;
-  margin: 1em;
   font-size: 2em;
-  font-weight: 500;
+  bottom: 0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
   text-align: center;
-  letter-spacing: 0.1em;
-  color: var(--color-primary-contrast);
-  box-sizing: border-box;
-  padding: 0.5em;
-  border: 3px solid transparent;
-  border-radius: 0.5em;
-  background: rgb(255, 255, 255, 0.1);
-  backdrop-filter: blur(30px);
-  background-clip: padding-box;
-  box-shadow: 10px 10px 10px rgba(180, 180, 180, 0.1);
+  padding: 0.25em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
-@media (min-width: 576px) {
+.slide-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
-@media (min-width: 768px) {
+.slider-navigation {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-@media (min-width: 992px) {
-  .title {
-    font-size: 3em;
+.swiper-button-container {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  width: 1.75em;
+  height: 1.75em;
+  padding: 1em;
+  border-radius: 50%;
+  background-color: rgba(200, 200, 200, 0.8);
+  box-shadow: 0 0 1em rgba(60, 60, 60, 0.8);
+  outline: none;
+  z-index: 2;
+  transition: all 0.2s ease-in;
+}
+
+.swiper-button-container:hover,
+.swiper-button-container:active {
+  background-color: var(--color-primary-contrast);
+}
+
+.swiper-button {
+  color: var(--color-primary);
+  position: absolute;
+}
+
+@media (min-width: 728px) {
+  .slide-title {
+    font-size: 2.5em;
+    letter-spacing: 0.4em;
   }
-}
-
-@media (min-width: 1200px) {
 }
 </style>

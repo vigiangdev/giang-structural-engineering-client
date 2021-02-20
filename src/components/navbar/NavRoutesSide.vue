@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 .nav {
-  z-index: 10;
+  z-index: 99;
 }
 
 .nav__burger {

@@ -35,9 +35,10 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.25s;
+  transition: all 0.5s ease-in;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
