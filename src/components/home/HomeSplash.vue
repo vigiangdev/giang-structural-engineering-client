@@ -29,12 +29,21 @@
           class="slider-container"
         >
           <swiper-slide
-            v-for="image in images"
-            v-bind:key="image.id"
+            v-for="project in projects.filter((el) =>
+              homeSplashIds.includes(el.id)
+            )"
+            v-bind:key="project.id"
             class="slide"
           >
-            <h1 class="slide-title">{{ image.title }}</h1>
-            <img class="slide-image" :src="image.imageUrl" />
+            <h1 class="slide-title">
+              {{ project.title }}
+            </h1>
+            <img
+              class="slide-image"
+              :src="
+                require(`../../assets/img/projects${project.path}${project.images[0]}`)
+              "
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -47,6 +56,7 @@ import SwiperCore, { Navigation, Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.min.css";
 import ButtonNavigation from "../utils/ButtonNavigation";
+import { mapGetters } from "vuex";
 
 SwiperCore.use([Navigation, Autoplay, EffectFade]);
 
@@ -56,98 +66,11 @@ export default {
     SwiperSlide,
     ButtonNavigation,
   },
+  computed: {
+    ...mapGetters(["projects", "homeSplashIds"]),
+  },
   data() {
-    return {
-      images: [
-        {
-          id: 1,
-          imageUrl: require("../../assets/img/projects/scenic-lane-residence/img-0.jpg"),
-          title: "Scenic Lane - Remodel",
-        },
-        {
-          id: 2,
-          imageUrl: require("../../assets/img/projects/grosvenor-place-residence/img-0.jpg"),
-          title: "Grosvenor Pl - New Construction",
-        },
-        {
-          id: 3,
-          imageUrl: require("../../assets/img/projects/pomona-ave-residence/img-0.jpg"),
-          title: "Pomona Ave - Accessory Dwelling Unit",
-        },
-        {
-          id: 4,
-          imageUrl: require("../../assets/img/projects/oxford-street-residence/img-0.jpg"),
-          title: "Oxford Street - Remodel",
-        },
-      ],
-      // homeProjectsId: [1, 4, 5, 6],
-      // projects: [
-      //   {
-      //     id: 1,
-      //     title: "Scenic Lane Residence",
-      //     location: "Healdsburg, CA",
-      //     path: "/scenic-lane-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      //   {
-      //     id: 2,
-      //     title: "Sixth Street Residence",
-      //     location: "Berkeley, CA",
-      //     path: "/sixth-street-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      //   {
-      //     id: 3,
-      //     title: "Grizzly Peak Blvd Residence",
-      //     location: "Berkeley, CA",
-      //     path: "/grizzly-peak-blvd-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      //   {
-      //     id: 4,
-      //     title: "Grosvenor Place Residence",
-      //     location: "Oakland, CA",
-      //     path: "/grosvenor-place-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      //   {
-      //     id: 5,
-      //     title: "Oxford Street Residence",
-      //     location: "Berkeley, CA",
-      //     path: "/oxford-street-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      //   {
-      //     id: 6,
-      //     title: "Pomona Ave Residence",
-      //     location: "Oakland, CA",
-      //     path: "/pomona-ave-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      //   {
-      //     id: 7,
-      //     title: "Alameda Ave Residence",
-      //     location: "Alameda, CA",
-      //     path: "/alameda-ave-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg", "img-1.jpg"],
-      //   },
-      //   {
-      //     id: 8,
-      //     title: "Canon Ave Residence",
-      //     location: "Oakland, CA",
-      //     path: "/canon-ave-residence/",
-      //     file: "img-0-thumbnail.jpg",
-      //     images: ["img-0.jpg"],
-      //   },
-      // ],
-    };
+    return {};
   },
   methods: {},
 };
@@ -229,6 +152,7 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  outline: none;
 }
 
 .swiper-icon-container {

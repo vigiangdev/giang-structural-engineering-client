@@ -6,8 +6,10 @@ export default createStore({
     isSidebarOpen: false,
     isModalSwiperOpen: false,
     activeProject: null,
+    homeSplashIds: [1, 4, 5, 6],
     projects: [
       {
+        id: 1,
         title: "Scenic Lane Residence",
         location: "Healdsburg, CA",
         path: "/scenic-lane-residence/",
@@ -15,6 +17,7 @@ export default createStore({
         images: ["img-0.jpg"],
       },
       {
+        id: 2,
         title: "Sixth Street Residence",
         location: "Berkeley, CA",
         path: "/sixth-street-residence/",
@@ -22,6 +25,7 @@ export default createStore({
         images: ["img-0.jpg"],
       },
       {
+        id: 3,
         title: "Grizzly Peak Blvd Residence",
         location: "Berkeley, CA",
         path: "/grizzly-peak-blvd-residence/",
@@ -29,6 +33,7 @@ export default createStore({
         images: ["img-0.jpg"],
       },
       {
+        id: 4,
         title: "Grosvenor Place Residence",
         location: "Oakland, CA",
         path: "/grosvenor-place-residence/",
@@ -36,6 +41,7 @@ export default createStore({
         images: ["img-0.jpg"],
       },
       {
+        id: 5,
         title: "Oxford Street Residence",
         location: "Berkeley, CA",
         path: "/oxford-street-residence/",
@@ -43,6 +49,7 @@ export default createStore({
         images: ["img-0.jpg"],
       },
       {
+        id: 6,
         title: "Pomona Ave Residence",
         location: "Oakland, CA",
         path: "/pomona-ave-residence/",
@@ -50,6 +57,7 @@ export default createStore({
         images: ["img-0.jpg"],
       },
       {
+        id: 7,
         title: "Alameda Ave Residence",
         location: "Alameda, CA",
         path: "/alameda-ave-residence/",
@@ -57,6 +65,7 @@ export default createStore({
         images: ["img-0.jpg", "img-1.jpg"],
       },
       {
+        id: 8,
         title: "Canon Ave Residence",
         location: "Oakland, CA",
         path: "/canon-ave-residence/",
@@ -74,6 +83,9 @@ export default createStore({
     },
     projects(state) {
       return state.projects;
+    },
+    homeSplashIds(state) {
+      return state.homeSplashIds;
     },
     activeProject(state) {
       return state.activeProject;
