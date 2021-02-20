@@ -25,8 +25,8 @@ button:focus {
 }
 
 button:hover {
-  background-color: var(--color-primary);
-  color: var(--color-primary-contrast);
+  background-color: var(--color-primary-contrast);
+  color: var(--color-primary);
   transition: all 0.2s;
 }
 

@@ -42,17 +42,17 @@
         required
       ></textarea>
     </div>
-    <ButtonDesign type="submit">Send</ButtonDesign>
+    <ButtonApp type="submit">Send</ButtonApp>
   </form>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import ButtonDesign from "@/components/utils/ButtonDesign.vue";
+import ButtonApp from "@/components/utils/ButtonApp.vue";
 
 export default {
   components: {
-    ButtonDesign,
+    ButtonApp,
   },
   data() {
     return {

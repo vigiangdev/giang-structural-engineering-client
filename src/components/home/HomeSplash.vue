@@ -3,18 +3,18 @@
     <div class="container">
       <div class="slider">
         <div class="slider-navigation">
-          <div class="swiper-button-container swiper-button-prev">
-            <font-awesome-icon
-              class="swiper-button"
-              :icon="['fas', 'chevron-left']"
-            />
-          </div>
-          <div class="swiper-button-container swiper-button-next">
-            <font-awesome-icon
-              class="swiper-button"
-              :icon="['fas', 'chevron-right']"
-            />
-          </div>
+          <ButtonNavigation class="button-container">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-icon-container">
+              <font-awesome-icon :icon="['fas', 'chevron-left']" />
+            </div>
+          </ButtonNavigation>
+          <ButtonNavigation class="button-container">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-icon-container">
+              <font-awesome-icon :icon="['fas', 'chevron-right']" />
+            </div>
+          </ButtonNavigation>
         </div>
         <swiper
           :slides-per-view="1"
@@ -46,6 +46,7 @@
 import SwiperCore, { Navigation, Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.min.css";
+import ButtonNavigation from "../utils/ButtonNavigation";
 
 SwiperCore.use([Navigation, Autoplay, EffectFade]);
 
@@ -53,6 +54,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    ButtonNavigation,
   },
   data() {
     return {
@@ -65,12 +67,12 @@ export default {
         {
           id: 2,
           imageUrl: require("../../assets/img/projects/grosvenor-place-residence/img-0.jpg"),
-          title: "Grosvenor Place - New Construction",
+          title: "Grosvenor Pl - New Construction",
         },
         {
           id: 3,
           imageUrl: require("../../assets/img/projects/pomona-ave-residence/img-0.jpg"),
-          title: "Pomona Avenue - New ADU Construction",
+          title: "Pomona Ave - Accessory Dwelling Unit",
         },
         {
           id: 4,
@@ -78,6 +80,73 @@ export default {
           title: "Oxford Street - Remodel",
         },
       ],
+      // homeProjectsId: [1, 4, 5, 6],
+      // projects: [
+      //   {
+      //     id: 1,
+      //     title: "Scenic Lane Residence",
+      //     location: "Healdsburg, CA",
+      //     path: "/scenic-lane-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      //   {
+      //     id: 2,
+      //     title: "Sixth Street Residence",
+      //     location: "Berkeley, CA",
+      //     path: "/sixth-street-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      //   {
+      //     id: 3,
+      //     title: "Grizzly Peak Blvd Residence",
+      //     location: "Berkeley, CA",
+      //     path: "/grizzly-peak-blvd-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      //   {
+      //     id: 4,
+      //     title: "Grosvenor Place Residence",
+      //     location: "Oakland, CA",
+      //     path: "/grosvenor-place-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      //   {
+      //     id: 5,
+      //     title: "Oxford Street Residence",
+      //     location: "Berkeley, CA",
+      //     path: "/oxford-street-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      //   {
+      //     id: 6,
+      //     title: "Pomona Ave Residence",
+      //     location: "Oakland, CA",
+      //     path: "/pomona-ave-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      //   {
+      //     id: 7,
+      //     title: "Alameda Ave Residence",
+      //     location: "Alameda, CA",
+      //     path: "/alameda-ave-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg", "img-1.jpg"],
+      //   },
+      //   {
+      //     id: 8,
+      //     title: "Canon Ave Residence",
+      //     location: "Oakland, CA",
+      //     path: "/canon-ave-residence/",
+      //     file: "img-0-thumbnail.jpg",
+      //     images: ["img-0.jpg"],
+      //   },
+      // ],
     };
   },
   methods: {},
@@ -91,6 +160,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .container {
@@ -111,7 +181,6 @@ export default {
   align-items: center;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .slider-container {
@@ -124,7 +193,7 @@ export default {
   font-size: 2em;
   bottom: 0;
   color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(94, 87, 87, 0.2);
   width: 100%;
   text-align: center;
   padding: 0.25em;
@@ -147,36 +216,34 @@ export default {
   height: 100%;
 }
 
-.swiper-button-container {
-  font-size: 1.5rem;
+.button-container {
+  position: relative;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 2px);
+  color: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.swiper-icon-container {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: transparent;
-  width: 1.75em;
-  height: 1.75em;
-  padding: 1em;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  background-color: rgba(200, 200, 200, 0.8);
-  box-shadow: 0 0 1em rgba(60, 60, 60, 0.8);
-  outline: none;
-  z-index: 2;
-  transition: all 0.2s ease-in;
 }
 
-.swiper-button-container:hover,
-.swiper-button-container:active {
-  background-color: var(--color-primary-contrast);
-}
-
-.swiper-button {
-  color: var(--color-primary);
-  position: absolute;
-}
-
-@media (min-width: 728px) {
+@media (min-width: 768px) {
   .slide-title {
-    font-size: 2.5em;
+    font-size: 2em;
     letter-spacing: 0.4em;
   }
 }
