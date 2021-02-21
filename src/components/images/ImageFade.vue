@@ -1,21 +1,26 @@
 <template>
-  <div
-    class="image__container"
-    v-on:click="openProject"
-    :style="{
-      backgroundImage: `url(${require(`@/assets/img/projects${project.path}${project.file}`)})`,
-    }"
+  <router-link
+    class="project-link"
+    :to="{ name: 'Project', params: { project: project.slug } }"
   >
     <div
-      class="image__window"
-      v-on:mouseover="fadeIn"
-      v-on:mouseleave="fadeOut"
-      :style="style"
+      class="image__container"
+      v-on:click="openProject"
+      :style="{
+        backgroundImage: `url(${require(`@/assets/img/projects/${project.slug}/${project.thumbnail}`)})`,
+      }"
     >
-      <h3>{{ project.title }}</h3>
-      <p class="image__location">{{ project.location }}</p>
+      <div
+        class="image__window"
+        v-on:mouseover="fadeIn"
+        v-on:mouseleave="fadeOut"
+        :style="style"
+      >
+        <h3>{{ project.title }}</h3>
+        <p class="image__location">{{ project.location }}</p>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -35,8 +40,8 @@ export default {
     ...mapMutations(["setActiveProject", "openModalSwiper"]),
     fadeIn() {
       this.hover = true;
-      this.style.backgroundColor = "rgba(44, 62, 80, 0.9)";
-      this.style.color = "var(--color-primary-contrast)";
+      this.style.color = "var(--color-primary";
+      this.style.backgroundColor = "rgba(249, 250, 251, 0.95";
     },
     fadeOut() {
       this.hover = false;
@@ -52,6 +57,10 @@ export default {
 </script>
 
 <style scoped>
+.project-link {
+  text-decoration: none;
+}
+
 .image__container {
   display: block;
   background-size: cover;

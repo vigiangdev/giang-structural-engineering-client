@@ -5,31 +5,29 @@
       v-on:click="closeSidebar"
       v-if="isSidebarOpen"
     ></div>
-    <transition name="slide">
-      <div class="nav__sidebar" v-if="isSidebarOpen">
-        <NavRoutesBurger class="nav__burger" />
-        <div class="nav__links">
-          <router-link
-            :to="{ name: 'Projects' }"
-            class="nav__link"
-            v-on:click="closeSidebar"
-            >PROJECTS</router-link
-          >
-          <router-link
-            :to="{ name: 'About' }"
-            class="nav__link"
-            v-on:click="closeSidebar"
-            >ABOUT US</router-link
-          >
-          <router-link
-            :to="{ name: 'Contact' }"
-            class="nav__link"
-            v-on:click="closeSidebar"
-            >CONTACT</router-link
-          >
-        </div>
+    <div class="nav__sidebar" v-if="isSidebarOpen">
+      <NavRoutesBurger class="nav__burger" />
+      <div class="nav__links">
+        <router-link
+          :to="{ name: 'Projects' }"
+          class="nav__link"
+          v-on:click="closeSidebar"
+          >PROJECTS</router-link
+        >
+        <router-link
+          :to="{ name: 'About' }"
+          class="nav__link"
+          v-on:click="closeSidebar"
+          >ABOUT US</router-link
+        >
+        <router-link
+          :to="{ name: 'Contact' }"
+          class="nav__link"
+          v-on:click="closeSidebar"
+          >CONTACT</router-link
+        >
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 

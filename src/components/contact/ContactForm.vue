@@ -92,6 +92,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-size: 1.6em;
+  width: 100%;
 }
 .container {
   display: flex;

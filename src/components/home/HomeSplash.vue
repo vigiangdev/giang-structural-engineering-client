@@ -35,15 +35,19 @@
             v-bind:key="project.id"
             class="slide"
           >
-            <h1 class="slide-title">
-              {{ project.title }}
-            </h1>
-            <img
-              class="slide-image"
-              :src="
-                require(`../../assets/img/projects${project.path}${project.images[0]}`)
-              "
-            />
+            <router-link
+              :to="{ name: 'Project', params: { project: project.slug } }"
+            >
+              <h1 class="slide-title">
+                {{ project.title }}
+              </h1>
+              <img
+                class="slide-image"
+                :src="
+                  require(`../../assets/img/projects/${project.slug}/${project.images[0]}`)
+                "
+              />
+            </router-link>
           </swiper-slide>
         </swiper>
       </div>
@@ -77,6 +81,12 @@ export default {
 </script>
 
 <style scoped>
+a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
 .homesplash {
   height: calc(100vh - 9em);
   width: 100vw;

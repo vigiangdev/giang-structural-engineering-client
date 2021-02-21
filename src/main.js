@@ -10,13 +10,23 @@ import "./assets/css/animations.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faUserSecret,
   faChevronLeft,
   faChevronRight,
+  faEnvelopeOpenText,
+  faCalendarAlt,
+  faComments,
+  faPencilRuler,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faUserSecret, faChevronLeft, faChevronRight);
+library.add(
+  faChevronLeft,
+  faChevronRight,
+  faEnvelopeOpenText,
+  faCalendarAlt,
+  faComments,
+  faPencilRuler
+);
 
 createApp(App)
   .use(store)

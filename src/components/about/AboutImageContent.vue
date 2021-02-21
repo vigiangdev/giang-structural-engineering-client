@@ -54,14 +54,14 @@ export default {};
   }
 
   .image {
-    flex-basis: 10em;
+    flex-basis: 20em;
     flex-grow: 1;
   }
 
   .content {
     padding: 0 0 0 2em;
     flex-basis: 0;
-    flex-grow: 4;
+    flex-grow: 5;
   }
 }
 </style>

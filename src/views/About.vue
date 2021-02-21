@@ -48,52 +48,20 @@
         design, remodels, and new construction.
       </p>
     </about-image-content>
-    <about-content-list>
-      <template v-slot:header>
-        <h3>The Process</h3>
-      </template>
-      <div class="content-list">
-        <h4>Consultation</h4>
-        <p>
-          Please send any architectural plans or sketches for our review. We can
-          address any questions or concerns via phone or email that may arise.
-        </p>
-        <h4>Proposal</h4>
-        <p>
-          Once we have an understanding of your needs, we will send you a
-          detailed proposal for the scheduled work.
-        </p>
-        <h4>Turnaround</h4>
-        <p>
-          Your project will be worked on right away. Depending on the scope of
-          the project, it may take a day or a few weeks. We will provide you an
-          estimate of completion.
-        </p>
-        <h4>Permitting</h4>
-        <p>
-          The structural drawings and engineering calculations will be provided
-          to you, which may be submitted to the city to obtain the required
-          permits.
-        </p>
-        <div class="contact-us">
-          <h3>Ready?</h3>
-          <router-link :to="{ name: 'Contact' }">Reach Out!</router-link>
-        </div>
-      </div>
-    </about-content-list>
+    <AboutProcess />
   </base-layout>
 </template>
 
 <script>
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import AboutImageContent from "@/components/about/AboutImageContent.vue";
-import AboutContentList from "@/components/about/AboutContentList.vue";
+import AboutProcess from "@/components/about/AboutProcess.vue";
 
 export default {
   components: {
     BaseLayout,
     AboutImageContent,
-    AboutContentList,
+    AboutProcess,
   },
 };
 </script>
