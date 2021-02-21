@@ -1,8 +1,5 @@
 <template>
   <base-layout>
-    <template v-slot:header>
-      <h1>Projects</h1>
-    </template>
     <ImagesGrid :projects="projects" />
   </base-layout>
 </template>

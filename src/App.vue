@@ -6,15 +6,18 @@
         <component :is="Component" />
       </transition>
     </router-view>
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/navbar/Navbar.vue";
+import AppFooter from "@/components/layout/AppFooter.vue";
 
 export default {
   components: {
     Navbar,
+    AppFooter,
   },
 };
 </script>

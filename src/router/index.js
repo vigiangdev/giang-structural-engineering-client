@@ -44,6 +44,27 @@ const routes = [
     name: "PageNotFound",
     component: () => import("../views/PageNotFound.vue"),
   },
+  {
+    path: "/yelp",
+    name: "Yelp",
+    beforeEnter() {
+      location.href = "http://yelp.com";
+    },
+  },
+  {
+    path: "/facebook",
+    name: "Facebook",
+    beforeEnter() {
+      location.href = "http://facebook.com";
+    },
+  },
+  {
+    path: "/linked-in",
+    name: "LinkedIn",
+    beforeEnter() {
+      location.href = "http://linkedin.com";
+    },
+  },
 ];
 
 const router = createRouter({

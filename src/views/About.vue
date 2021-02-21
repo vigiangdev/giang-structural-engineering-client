@@ -1,8 +1,5 @@
 <template>
   <base-layout>
-    <template v-slot:header>
-      <h1 class="title">About Us</h1>
-    </template>
     <about-image-content>
       <template v-slot:header>
         <h3>Who We Are</h3>

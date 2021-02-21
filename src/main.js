@@ -17,6 +17,13 @@ import {
   faComments,
   faPencilRuler,
 } from "@fortawesome/free-solid-svg-icons";
+
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faYelp,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
@@ -25,7 +32,11 @@ library.add(
   faEnvelopeOpenText,
   faCalendarAlt,
   faComments,
-  faPencilRuler
+  faPencilRuler,
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faYelp
 );
 
 createApp(App)
