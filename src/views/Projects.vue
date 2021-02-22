@@ -1,7 +1,9 @@
 <template>
-  <base-layout>
-    <ImagesGrid :projects="projects" />
-  </base-layout>
+  <div class="projects">
+    <base-layout>
+      <ImagesGrid :projects="projects" />
+    </base-layout>
+  </div>
 </template>
 
 <script>
@@ -25,6 +27,13 @@ export default {
 </script>
 
 <style scoped>
+.projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 14rem);
+  width: 100vw;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.5s ease-in;

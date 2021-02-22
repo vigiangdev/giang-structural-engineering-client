@@ -25,7 +25,7 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }"
-          :autoplay="{ delay: 8000 }"
+          :autoplay="{ delay: 6000 }"
           class="slider-container"
         >
           <swiper-slide

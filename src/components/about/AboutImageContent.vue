@@ -20,11 +20,12 @@ export default {};
 
 <style scoped>
 .about-image-content {
+  font-size: 1rem;
   margin: 0 0 4em 0;
 }
 
 .header {
-  font-size: 2em;
+  font-size: 1.4em;
   font-weight: 500;
 }
 
@@ -35,7 +36,7 @@ export default {};
 }
 
 .content {
-  font-size: 1.8em;
+  font-size: 1em;
   padding: 2em 0;
 }
 
@@ -54,14 +55,14 @@ export default {};
   }
 
   .image {
-    flex-basis: 20em;
+    flex-basis: 15em;
     flex-grow: 1;
   }
 
   .content {
     padding: 0 0 0 2em;
     flex-basis: 0;
-    flex-grow: 5;
+    flex-grow: 12;
   }
 }
 </style>

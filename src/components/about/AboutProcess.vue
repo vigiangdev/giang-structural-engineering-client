@@ -10,7 +10,7 @@
           <h3>Consultation</h3>
         </template>
         <p>
-          Please send any architectural plans or sketches for our review. We can
+          Send any architectural plans or sketches for our review. We can
           address any questions or concerns via phone or email that may arise.
         </p>
       </AboutProcessCard>

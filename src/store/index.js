@@ -15,6 +15,11 @@ export default createStore({
         slug: "scenic-lane-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 2,
@@ -23,6 +28,11 @@ export default createStore({
         slug: "sixth-street-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 3,
@@ -31,6 +41,11 @@ export default createStore({
         slug: "grizzly-peak-blvd-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 4,
@@ -39,6 +54,11 @@ export default createStore({
         slug: "grosvenor-place-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 5,
@@ -47,6 +67,11 @@ export default createStore({
         slug: "oxford-street-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 6,
@@ -55,6 +80,11 @@ export default createStore({
         slug: "pomona-ave-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 7,
@@ -63,6 +93,11 @@ export default createStore({
         slug: "alameda-ave-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg", "img-1.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
       {
         id: 8,
@@ -71,6 +106,11 @@ export default createStore({
         slug: "canon-ave-residence",
         thumbnail: "img-0-thumbnail.jpg",
         images: ["img-0.jpg"],
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        engineer: "Giang Engineering",
+        architect: "Architect's Name Company",
+        contractor: "Contractor's Name Company",
       },
     ],
   },
@@ -83,6 +123,11 @@ export default createStore({
     },
     projects(state) {
       return state.projects;
+    },
+    projectBySlug(state) {
+      return (slug) => {
+        return state.projects.find((project) => project.slug === slug);
+      };
     },
     homeSplashIds(state) {
       return state.homeSplashIds;
