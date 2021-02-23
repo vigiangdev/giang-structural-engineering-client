@@ -4,7 +4,7 @@
       class="image animate-in"
       v-for="(project, index) in projects"
       v-bind:key="index"
-      :style="{ 'animation-delay': (index * 0.2).toString() + 's' }"
+      :style="{ 'animation-delay': (index * 0.15).toString() + 's' }"
     >
       <ImageFade :project="project" />
     </div>
@@ -38,31 +38,6 @@ export default {
   box-sizing: border-box;
   opacity: 0;
 }
-
-/* .image:nth-child(1) {
-  animation-delay: 0s;
-}
-.image:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.image:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.image:nth-child(4) {
-  animation-delay: 0.6s;
-}
-.image:nth-child(5) {
-  animation-delay: 0.8s;
-}
-.image:nth-child(6) {
-  animation-delay: 1s;
-}
-.image:nth-child(7) {
-  animation-delay: 1.2s;
-}
-.image:nth-child(8) {
-  animation-delay: 1.4s;
-} */
 
 .animate-in {
   animation-name: fadeIn;

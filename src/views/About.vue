@@ -75,33 +75,6 @@ export default {
   flex-direction: column;
 }
 
-.content-list h4 {
-  text-align: center;
-  font-weight: 500;
-}
-
-.content-list p {
-  text-align: center;
-}
-
-.contact-us {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2em 0 0;
-}
-
-.contact-us h3 {
-  font-size: 1.4em;
-  font-weight: 500;
-}
-.contact-us a {
-  font-size: 1.2em;
-  text-decoration: none;
-  color: var(--color-primary);
-}
-
 p {
   padding: 0 0 1em 0;
 }
