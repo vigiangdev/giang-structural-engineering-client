@@ -13,11 +13,23 @@
 <script>
 import Navbar from "@/components/navbar/Navbar.vue";
 import AppFooter from "@/components/layout/AppFooter.vue";
+import AOS from "aos";
 
 export default {
   components: {
     Navbar,
     AppFooter,
+  },
+  created() {
+    AOS.init({
+      offset: 120,
+      delay: 200,
+      duration: 400,
+      easing: "ease",
+      once: false,
+      mirror: true,
+      anchorPlacement: "top-bottom",
+    });
   },
 };
 </script>

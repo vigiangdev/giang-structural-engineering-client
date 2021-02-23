@@ -1,5 +1,5 @@
 <template>
-  <div class="about-image-content">
+  <div class="about-image-content" data-aos="fade-up">
     <header class="header">
       <slot name="header"></slot>
     </header>

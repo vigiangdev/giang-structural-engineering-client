@@ -1,5 +1,5 @@
 <template>
-  <div class="about-process">
+  <div class="about-process" data-aos="fade-up">
     <h3 class="about-title">Our Process</h3>
     <div class="cards-container">
       <AboutProcessCard class="card">

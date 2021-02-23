@@ -7,6 +7,7 @@ import "./assets/css/styles.css";
 import "./assets/css/variables.css";
 import "./assets/css/fonts.css";
 import "./assets/css/animations.css";
+import "aos/dist/aos.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
